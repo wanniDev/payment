@@ -1,27 +1,24 @@
-package com.example.payment.domain;
+package com.example.payment.infrastructure.pg;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.Embeddable;
-
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Embeddable
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor
 @Getter
-@Builder
-public class PaymentInfo {
+@Setter
+public final class PaymentCompletedResponse {
 	private String version;
 	private String orderId;
 	private String orderName;
 	private String paymentKey;
 	private String type;
+	private String method;
 	private String mid;
+	private String currency;
+	private boolean useEscrow;
+	private boolean cultureExpense;
+	private String secret;
 	private Integer totalAmount;
 	private Integer balanceAmount;
 	private Integer suppliedAmount;
@@ -31,5 +28,5 @@ public class PaymentInfo {
 	private String transactionKey;
 	private Integer vat;
 	private Integer taxFreeAmount;
-
+	private PaymentCardInfoResponse card;
 }
